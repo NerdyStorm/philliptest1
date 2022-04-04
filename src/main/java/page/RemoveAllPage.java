@@ -28,13 +28,13 @@ WebDriver driver;
 	
 	public boolean clickRemoveButton() {
 		REMOVEALLBUTTON_ELEMENT.click();
-		return false;
+		return true;
 	}
 	public void verifyAllRemoved() {
 		List<WebElement> Element = driver.findElements(By.cssSelector("input[name='todo[0]']"));
 	
 		
-		if (Element.size() != 0) {  
+		if (Element.size() == 0) {  
 
 			System.out.println("All Elements not Removed");
 		} else {  

@@ -18,12 +18,12 @@ public class RemovePage  {
 		this.driver = driver;
 	}
 
-	@FindBy(how=How.CSS,using = "input[value='Remove']")
+	@FindBy(how=How.CSS,using = " body > div.controls > input[type=submit]:nth-child(1)")
 	WebElement REMOVEBUTTON_ELEMENT;
-//	@FindBy(how=How.CSS,using = "input[name='todo[1]']")
-//	WebElement SINGLEITEM_ELEMENT;
-	@FindBy(how=How.XPATH,using = "//*[@id=\"todos-content\"]/form/ul/li[2]/a")
+	@FindBy(how=How.CSS,using = "input[name='todo[1]']")
 	WebElement SINGLEITEM_ELEMENT;
+	@FindBy(how=How.XPATH,using = "//*[@id=\"todos-content\"]/form/ul/li[2]/text()")
+	WebElement LISTITEM_ELEMENT;
 //	@FindBy(name = "todo[1]")
 //	WebElement singleItem; 
 	
@@ -31,19 +31,24 @@ public class RemovePage  {
 		REMOVEBUTTON_ELEMENT.click();
 		
 	}
-	public boolean clickSingleItem() {
+	public boolean clickSingleItem() {							 
 		SINGLEITEM_ELEMENT.click();
-		return false;
+		return true;											 
+	}
+	public  void listItemElement() {
+		LISTITEM_ELEMENT.getText();
 	}
 	 
 	public void verifyItemRemoved() {
-		 List<WebElement> Element = driver.findElements( By.xpath("//ul[contains(@style,'list-style-type')]//li//input"));
-		if (Element.size() !=0) {  
-
-			System.out.println("Element not Removed");
-		} else {  
+	 
+		 List<WebElement> Element = driver.findElements(By.cssSelector("input[name='todo[0]']"));
+		 
+		if (Element.size() !=0 ) {  
 
 			System.out.println("Element Removed");
+		} else {  
+
+			System.out.println("Element not Removed");
 		}
 		 
 

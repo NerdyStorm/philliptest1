@@ -42,8 +42,7 @@ public class TandRTest {
 		RemovePage removepage = PageFactory.initElements(driver, RemovePage.class);
 		removepage.clickSingleItem();
 		removepage.clickRemoveButton();
-		removepage.verifyItemRemoved();  
-		boolean verify = removepage.clickSingleItem(); 
+		boolean verify = removepage.verifyItemRemoved();   
 		Assert.assertTrue(verify); 
 		
 		 

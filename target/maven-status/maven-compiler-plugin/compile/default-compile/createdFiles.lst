@@ -1,0 +1,5 @@
+page\TogglePage.class
+page\RemovePage.class
+util\BrowserFactory.class
+page\RemoveAllPage.class
+page\BasePage.class
